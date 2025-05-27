@@ -36,7 +36,7 @@ void SPI_MasterInit(void)
 {
 	DDR_SPI = (1<<DD_MOSI)|(1<<DD_SCK)|(1<<DD_SS); // MOSI, SCK, SS su output, svi ostali input, SS kao izlaz treba za GLCD
 	SPCR = (1<<SPE)|(1<<MSTR);			// enable SPI, SPI master
-	SPSR = (1<<SPI2X);				// clock rate fsck/2
+	SPSR |= (1<<SPI2X);				// clock rate fsck/2
 }
 
 uint8_t SPI_MasterTransmit(uint8_t cData)
